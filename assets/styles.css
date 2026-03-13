@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    line-height: 1.6;
+    color: #333;
+}
+
+/* Header Styles */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #2c3e50;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+}
+
+.logo span {
+    color: #ecf0f1;
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 30px;
+}
+
+.nav-links a {
+    color: #ecf0f1;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #1abc9c;
+}
+
+/* Thêm kiểu cho dropdown và popup */
+.dropdown {
+    position: relative;
+}
+
+.popup-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    min-width: 200px;
+    z-index: 1001;
+    color: #333;
+    font-size: 14px;
+}
+
+.dropdown:hover .popup-content {
+    display: block;
+}
+
+/* Container Styles */
+.container {
+    max-width: 1200px;
+    margin: 100px auto 20px;
+    padding: 0 20px;
+}
+
+.main-content {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+}
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: 700;
+}
+
+/* Form Styles */
+.prediction-form {
+    margin-bottom: 20px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #34495e;
+}
+
+.form-group input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng khi focus vào input */
+.form-group input:focus {
+    border-color: #1abc9c;
+    box-shadow: 0 0 8px rgba(26, 188, 156, 0.3);
+    transform: scale(1.02);
+    outline: none;
+}
+
+/* Hiệu ứng khi input không hợp lệ */
+.form-group input:invalid {
+    border-color: #e74c3c;
+    box-shadow: 0 0 5px rgba(231, 76, 60, 0.3);
+}
+
+/* Hiển thị thông báo lỗi khi input không hợp lệ */
+.form-group input:invalid + .error-message {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Thông báo lỗi */
+.error-message {
+    color: #e74c3c;
+    font-size: 12px;
+    margin-top: 5px;
+    min-height: 20px;
+    display: block;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Button Styles */
+.submit-btn {
+    display: block;
+    width: 200px;
+    margin: 30px auto 0;
+    padding: 12px 20px;
+    background: #1abc9c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hiệu ứng hover cho button */
+.submit-btn:hover {
+    background: #16a085;
+    transform: scale(1.05);
+}
+
+/* Hiệu ứng loading khi nhấn button */
+.submit-btn:active::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #fff;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+.submit-btn:active {
+    background: #95a5a6;
+}
+
+/* Animation cho hiệu ứng loading */
+@keyframes spin {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Result Styles */
+.result {
+    margin-top: 30px;
+    text-align: center;
+    padding: 20px;
+    background: #ecf0f1;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+.result h2 {
+    color: #2c3e50;
+    font-size: 24px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .nav-links {
+        margin-top: 10px;
+    }
+
+    .nav-links li {
+        margin: 0 15px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .submit-btn {
+        width: 100%;
+    }
+}
