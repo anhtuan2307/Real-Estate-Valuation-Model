@@ -1,5 +1,5 @@
 # Real Estate Valuation Model & Web App (ANN)
-*Academic Project - COS30082 Applied Machine Learning*
+*Academic Project - Swinburne University of Technology COS30082 Applied Machine Learning*
 
 ##  Project Overview
 This project involves developing a sophisticated Artificial Neural Network (ANN) to predict real estate prices in King County (including Seattle) using a dataset of over 21,500 sales records. The system includes a fully functional web interface for real-time property valuation.
